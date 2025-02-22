@@ -1,18 +1,17 @@
-import { useRef, useState } from 'react'
-import class_A from './components/class_A';
+import {  createContext } from 'react'
 import './App.css'
-import UseStateHook from './components/UseStateHook';
-import UseRefHook from './components/UseRefHook';
-import UseRef_dom from './components/UseRef_dom';
-import UseRefStopWatch from './components/UseRefStopWatch';
+import Class_A from './components/UseContext/Class_A';
+
+const userCon = createContext();
 
 function App() {
-  const [data, setData]=useState(true);
+  const data = "Abhishek"
   return (
     <>
-    <UseRefStopWatch data={data} setData={setData}/>
+    <userCon.Provider value={data}><Class_A/></userCon.Provider>
     </>
   )
 }
 
 export default App
+export {userCon};
